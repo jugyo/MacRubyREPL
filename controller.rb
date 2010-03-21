@@ -10,7 +10,7 @@ class Controller
 
     begin
       $stdout = stdout
-      outText = eval(text).inspect
+      outText = eval(text, TOPLEVEL_BINDING).inspect
     rescue Exception => e
       @outTextField.appendText(e.message + "\n")
     ensure

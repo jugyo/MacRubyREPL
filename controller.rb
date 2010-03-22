@@ -1,7 +1,7 @@
 require 'stringio'
 
 class Controller
-  attr_accessor :inTextField, :outTextField
+  attr_accessor :inTextField, :outTextField, :window
 
   def evalText(sender)
     stdout = StringIO.new
@@ -19,5 +19,12 @@ class Controller
 
     @outTextField.appendText(stdout.string)
     @outTextField.appendText("=> " + outText + "\n")
+  end
+
+  def applicationDidFinishLaunching(note)
+  end
+
+  def applicationShouldTerminateAfterLastWindowClosed(application)
+    true
   end
 end
